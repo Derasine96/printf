@@ -12,7 +12,7 @@ void print_char(va_list args)
 	_putchar(ch);
 }
 /**
- * print_string - Function to handle %s formatting
+ * print_string - Function to handle %s for string formatting
  * @args: argument list
  */
 void print_string(va_list args)
