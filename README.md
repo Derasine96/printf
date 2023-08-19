@@ -1,2 +1,2 @@
-## printf project
-Creating our first printf function
+## ALX PRINTF PPROJECT
+This project to implement the printf function in C
