@@ -1,9 +1,9 @@
 #include "main.h"
 
 /**
- * get_op - function selector
- * @c: character literal
- * Return: ponter to the function nedded
+ * get_op - prints integer
+ * @c: char to check
+ * Return: pointer to a function
  */
 int (*get_op(const char *c))(va_list)
 {
@@ -13,6 +13,8 @@ int (*get_op(const char *c))(va_list)
 		{"c", print_char},
 		{"s", print_string},
 		{"%", print_percent},
+		{"d", print_integer},
+		{"i", print_integer},
 		{NULL, NULL}};
 
 	while (fg[i].c != NULL)
@@ -63,5 +65,5 @@ int _printf(const char *format, ...)
 		format++;
 	}
 	va_end(args);
-	return (i);
+	   return (i);
 }

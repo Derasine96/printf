@@ -3,7 +3,7 @@
 /**
  * print_char - prints char
  * @args: variable arguments
- * Return: (0)
+ * Return: Integer
  */
 int print_char(va_list args)
 {
@@ -12,7 +12,6 @@ int print_char(va_list args)
 	_putchar(ch);
 	return (0);
 }
-
 
 /**
  * print_string - prints strings
@@ -34,10 +33,42 @@ int print_string(va_list args)
 /**
  * print_percent - prints %
  * @args: variable arg
+ * @_attribute_((unused): unused variables
  * Return: integer
  */
-int print_percent(va_list __attribute__((unused)) args)
+int print_percent(va_list _attribute_((unused)) args)
 {
 	_putchar('%');
 	return (0);
+}
+
+/**
+ * check_integer - prints the intger
+ * @res: number to print
+ */
+void check_integer(int res)
+{
+	if (res < 0)
+	{
+		_putchar('-');
+		res = -res;
+	}
+
+	if (res / 10)
+		check_integer(res / 10);
+	_putchar(res % 10 + '0');
+}
+
+/**
+ * print_integer - prints whole number
+ * @args: variable arg
+ * Return: integer
+ */
+int print_integer(va_list args)
+{
+	int val = va_arg(args, int);
+
+	check_integer(val);
+
+	   return (0);
 }
