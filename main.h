@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <stdarg.h>
 #include <stdlib.h>
+#include <unistd.h>
 
 #define BUFF_SIZE 1024
 
@@ -18,6 +19,7 @@ int print_unsigned(va_list args);
 int print_octal(va_list args);
 int print_hex(va_list args);
 int cap_hex(va_list args);
+int pointer(va_list args);
 /**
  * struct printf_flag - A struct op.
  * @c: The specifier.
