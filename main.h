@@ -17,6 +17,7 @@ int print_binary(va_list args);
 int print_unsigned(va_list args);
 int print_octal(va_list args);
 int print_hex(va_list args);
+int cap_hex(va_list args);
 /**
  * struct printf_flag - A struct op.
  * @c: The specifier.

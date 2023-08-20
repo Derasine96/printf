@@ -111,3 +111,32 @@ int print_hex(va_list args)
 	}
 	return (0);
 }
+/**
+ * cap_hex - prints the hexadecimal value
+ * @args: variable argument
+ * Return: (0);
+ */
+int cap_hex(va_list args)
+{
+	unsigned int value = va_arg(args, unsigned int);
+	char hexa[BUFF_SIZE];
+	int index = 0, i;
+
+	char hex_digits[] = "0123456789ABCDEF";
+
+	if (value == 0)
+	{
+		_putchar('0');
+		return (0);
+	}
+	while (value > 0)
+	{
+		hexa[index++] = hex_digits[value % 16];
+		value = value / 16;
+	}
+	for (i = index - 1; i >= 0; i--)
+	{
+		_putchar(hexa[i]);
+	}
+	return (0);
+}

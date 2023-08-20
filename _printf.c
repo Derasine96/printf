@@ -19,7 +19,7 @@ int (*get_op(const char *c))(va_list)
 		{"u", print_unsigned},
 		{"o", print_octal},
 		{"x", print_hex},
-		{"X", print_hex},
+		{"X", cap_hex},
 		{NULL, NULL}};
 
 	while (fg[i].c != NULL)
