@@ -1,2 +1,5 @@
 # matches any files and directories with the name test
 test
+main.c
+a*
+_putchar.c

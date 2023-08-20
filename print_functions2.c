@@ -54,3 +54,30 @@ int print_unsigned(va_list args)
 	}
 	return (0);
 }
+/**
+ * print_octal - to print an unsigned integer in octal
+ * @args: variable arg
+ * Return: (0)
+ */
+int print_octal(va_list args)
+{
+	unsigned int value =  va_arg(args, unsigned int);
+	int octal[32];
+	int index = 0, i;
+
+	if (value == 0)
+	{
+		_putchar('0');
+		return (0);
+	}
+	while (value > 0)
+	{
+		octal[index++] = value % 8;
+		value = value / 8;
+	}
+	for (i = index - 1; i >= 0; i--)
+	{
+		_putchar(octal[i] + '0');
+	}
+	return (0);
+}
