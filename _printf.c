@@ -15,6 +15,8 @@ int (*get_op(const char *c))(va_list)
 		{"%", print_percent},
 		{"d", print_integer},
 		{"i", print_integer},
+		{"b", print_binary},
+		{"u", print_unsigned},
 		{NULL, NULL}};
 
 	while (fg[i].c != NULL)
