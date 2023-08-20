@@ -1,3 +1,5 @@
+#include <stdarg.h>
+#include "main.h"
 /**
  * pointer - prints the hexadecimal value
  * @args: variable argument
