@@ -5,6 +5,8 @@
 #include <stdarg.h>
 #include <stdlib.h>
 
+#define BUFF_SIZE 1024
+
 int _putchar(char c);
 int _printf(const char *format, ...);
 int print_char(va_list args);
@@ -14,7 +16,7 @@ int print_integer(va_list args);
 int print_binary(va_list args);
 int print_unsigned(va_list args);
 int print_octal(va_list args);
-
+int print_hex(va_list args);
 /**
  * struct printf_flag - A struct op.
  * @c: The specifier.
