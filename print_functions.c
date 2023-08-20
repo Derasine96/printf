@@ -36,7 +36,7 @@ int print_string(va_list args)
  * @_attribute_((unused): unused variables
  * Return: integer
  */
-int print_percent(va_list args __attribute__((unused)))
+int print_percent(va_list __attribute__((unused)) args)
 {
 	_putchar('%');
 	return (0);
@@ -62,7 +62,7 @@ void check_integer(int res)
 /**
  * print_integer - prints whole number
  * @args: variable arg
- * Return: integer
+ * Return: (0)
  */
 int print_integer(va_list args)
 {
