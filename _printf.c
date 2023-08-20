@@ -1,37 +1,31 @@
 #include "main.h"
-#include <stdarg.h>
-#include <stdio.h>
-/**
- * print_char - Function to handle %c formatting
- * @args: argument list
- */
-void print_char(va_list args)
-{
-	char ch = va_arg(args, int);
 
-	_putchar(ch);
-}
 /**
- * print_string - Function to handle %s for string formatting
- * @args: argument list
+ * get_op - function selector
+ * @c: character literal
+ * Return: ponter to the function nedded
  */
-void print_string(va_list args)
+int (*get_op(const char *c))(va_list)
 {
-	char *s = va_arg(args, char *);
+	int i = 0;
 
-	while (*s != '\0')
+	flags fg[] = {
+		{"c", print_char},
+		{"s", print_string},
+		{"%", print_percent},
+		{NULL, NULL}};
+
+	while (fg[i].c != NULL)
 	{
-		_putchar(*s);
-		s++;
+		if (*c == fg[i].c[0])
+		{
+			return (fg[i].f);
+		}
+		i++;
 	}
+	return (NULL);
 }
-/**
- * print_percent - Function to handle %% formatting
- */
-void print_percent(void)
-{
-	_putchar('%');
-}
+
 /**
  * _printf - a function that produces output according to a format
  * @format: character string
@@ -40,6 +34,7 @@ void print_percent(void)
  */
 int _printf(const char *format, ...)
 {
+	int (*func)(va_list);
 	int i = 0;
 	va_list args;
 
@@ -47,31 +42,23 @@ int _printf(const char *format, ...)
 		return (-1);
 
 	va_start(args, format);
+
 	while (*format)
 	{
 		if (*format == '%')
 		{
 			format++;
-			switch (*format)
+			func = get_op(format);
+			if (func == NULL)
 			{
-				case 'c':
-					print_char(args);
-					break;
-				case 's':
-					print_string(args);
-					break;
-				case '%':
-					print_percent();
-					break;
-				default:
-					_putchar('%');
-					_putchar(*format);
+				_putchar('%');
+				_putchar(*format);
 			}
+			else
+				func(args);
 		}
 		else
-		{
 			_putchar(*format);
-		}
 		i++;
 		format++;
 	}

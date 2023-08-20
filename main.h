@@ -1,10 +1,26 @@
 #ifndef MAIN_H
 #define MAIN_H
 
+#include <stdio.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
+
 int _putchar(char c);
 int _printf(const char *format, ...);
-void print_char(va_list args);
-void print_string(va_list args);
-void print_percent(void);
+int print_char(va_list args);
+int print_string(va_list args);
+int print_percent(void);
+
+/**
+ * struct printf_flag - A struct op.
+ * @c: The specifier.
+ * @f: The associated function.
+ */
+typedef struct printf_flag
+{
+	char *c;
+	int (*f)(va_list);
+} flags;
 
 #endif
