@@ -10,7 +10,7 @@ int print_char(va_list args)
 	char ch = va_arg(args, int);
 
 	_putchar(ch);
-	return (0);
+	return (1);
 }
 
 /**
@@ -21,13 +21,21 @@ int print_char(va_list args)
 int print_string(va_list args)
 {
 	char *s = va_arg(args, char *);
+	int i = 0;
 
-	while (*s != '\0')
+	if (s != NULL)
 	{
-		_putchar(*s);
-		s++;
+		while (*s != '\0')
+		{
+			_putchar(*s);
+			s++;
+			i++;
+		}
+	} else
+	{
+		i += print_null();
 	}
-	return (0);
+	return (i);
 }
 
 /**
@@ -39,7 +47,7 @@ int print_string(va_list args)
 int print_percent(va_list args __attribute__((unused)))
 {
 	_putchar('%');
-	return (0);
+	return (1);
 }
 
 /**

@@ -8,6 +8,7 @@
 
 #define BUFF_SIZE 1024
 
+int print_null(void);
 int _putchar(char c);
 int _printf(const char *format, ...);
 int print_char(va_list args);

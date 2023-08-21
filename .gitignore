@@ -1,4 +1,4 @@
 # matches any files and directories with the name test
 test
-main.c
+main*
 a*

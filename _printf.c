@@ -56,18 +56,31 @@ int _printf(const char *format, ...)
 		if (*format == '%')
 		{
 			format++;
-			func = get_op(format);
-			if (func == NULL)
+
+			if (*format != '\0')
 			{
-				_putchar('%');
-				_putchar(*format);
+				func = get_op(format);
+				if (func == NULL)
+				{
+					_putchar('%');
+					_putchar(*format);
+					i += 2;
+				}
+				else
+				{
+					i += func(args);
+				}
 			}
 			else
-				func(args);
+			{
+				return (-1);
+			}
 		}
 		else
+		{
 			_putchar(*format);
-		i++;
+			i++;
+		}
 		format++;
 	}
 	va_end(args);
