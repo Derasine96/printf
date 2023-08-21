@@ -56,15 +56,32 @@ int print_percent(va_list args __attribute__((unused)))
  */
 void check_integer(int res)
 {
+	unsigned int val;
+	int i = 0;
+
+	val = res;
+
 	if (res < 0)
 	{
 		_putchar('-');
-		res = -res;
+		val = -val;
+		i++;
 	}
 
-	if (res / 10)
-		check_integer(res / 10);
-	_putchar(res % 10 + '0');
+	if (val <= 9)
+	{
+		i += _putchar(val + '0');
+		return (i);
+	}
+	i++;
+
+	if (val / 10)
+	{
+		i += check_integer(val / 10);
+		_putchar((val % 10) + '0');
+		return (i);
+	}
+	return (0);
 }
 
 /**
