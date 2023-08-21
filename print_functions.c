@@ -53,8 +53,9 @@ int print_percent(va_list args __attribute__((unused)))
 /**
  * check_integer - prints the intger
  * @res: number to print
+ * Return: Integer
  */
-void check_integer(int res)
+int check_integer(int res)
 {
 	unsigned int val;
 	int i = 0;
@@ -87,12 +88,13 @@ void check_integer(int res)
 /**
  * print_integer - prints whole number
  * @args: variable arg
- * Return: (0)
+ * Return: Integer
  */
 int print_integer(va_list args)
 {
-	int val = va_arg(args, int);
+	int res, val;
 
-	check_integer(val);
-	return (0);
+	val = va_arg(args, int);
+	res = check_integer(val);
+	return (res);
 }
