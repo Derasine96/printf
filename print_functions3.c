@@ -12,7 +12,7 @@ int pointer(va_list args)
 	int i = 0, count = 0, values[BUFF_SIZE];
 
 	if (addr == NULL)
-		return (print_null());
+		return (write(1, "(nil)", 5));
 
 	num_addr = (unsigned long) addr;
 	_putchar('0');
