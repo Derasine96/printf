@@ -40,5 +40,5 @@ int append_hexa_code(char ascii_code)
 		_putchar(hex[i]);
 		i++;
 	}
-	return (0);
+	return (4);
 }
