@@ -21,6 +21,7 @@ int print_octal(va_list args);
 int print_hex(va_list args);
 int cap_hex(va_list args);
 int pointer(va_list args);
+int append_hexa_code(char);
 /**
  * struct printf_flag - A struct op.
  * @c: The specifier.
