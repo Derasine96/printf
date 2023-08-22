@@ -58,9 +58,7 @@ int print_plus_flag(va_list args)
 		return (1);
 	}
 	else
-	{
 		return (0);
-	}
 }
 /**
  * print_space_flag - handle space flag
@@ -78,9 +76,7 @@ int print_space_flag(va_list args)
 		return (1);
 	}
 	else
-	{
 		return (0);
-	}
 }
 /**
  * print_hash_flag_hex - handle hash flag
@@ -98,7 +94,5 @@ int print_hash_flag_hex(va_list args)
 		return (1);
 	}
 	else
-	{
 		return (0);
-	}
 }
