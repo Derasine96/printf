@@ -6,7 +6,7 @@
  */
 int pointer(va_list args)
 {
-	void *addr = va_arg(args, void);
+	void *addr = va_arg(args, void *);
 	unsigned long num_addr;
 	char map_to[] = "0123456789abcdef";
 	int i = 0, count = 0, values[BUFF_SIZE];
