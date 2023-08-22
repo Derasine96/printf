@@ -21,7 +21,9 @@ int print_char(va_list args)
 int print_string(va_list args)
 {
 	char *s = va_arg(args, char *);
+
 	int i = 0;
+
 	if (s != NULL)
 	{
 		while (*s != '\0')
