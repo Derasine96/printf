@@ -60,3 +60,38 @@ int print_string_reversed(va_list args)
 	}
 	return (count);
 }
+/**
+ * print_rot13 - print 13th char from a chae.
+ * @args: variable arguments
+ * Return: integer
+ */
+int print_rot13(va_list args)
+{
+	char *y = va_arg(args, char *);
+
+	int n, i = 0, count = 0;
+	char s[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	char t[] = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
+
+	if (y == NULL)
+	{
+		y = "(null)";
+	}
+
+	while (y[i] != '\0')
+	{
+		char ch = y[i];
+
+		for (n = 0; s[n] != '\0'; n++)
+		{
+			if (s[n] == y[i])
+			{
+				ch = t[n];
+				break;
+			}
+		}
+		count += _putchar(ch);
+		i++;
+	}
+	return (count);
+}
