@@ -1,4 +1,3 @@
-#include <stdarg.h>
 #include "main.h"
 /**
  * pointer - prints the hexadecimal value
@@ -7,13 +6,29 @@
  */
 int pointer(va_list args)
 {
-	char *value = va_arg(args, char *);
+	void *addr = va_arg(args, void);
+	unsigned long num_addr;
+	char map_to[] = "0123456789abcdef";
+	int i = 0, count = 0, values[BUFF_SIZE];
 
-	_putchar('-');
-	while (*value)
+	if (addr == NULL)
+		return (print_null());
+
+	num_addr = (unsigned long) addr;
+	_putchar('0');
+	_putchar('x');
+
+	while (num_addr > 0)
 	{
-		_putchar(*value);
-		value++;
+		values[i] = map_to[num_addr % 16];
+		num_addr /= 16;
+		i++;
 	}
-	return (0);
+
+	while (i >= 0)
+	{
+		count += _putchar(values[i]);
+		i--;
+	}
+	return (count);
 }
