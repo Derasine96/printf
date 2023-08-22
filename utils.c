@@ -18,7 +18,7 @@ int print_null(void)
  * append_hexa_code - Append ascci in hexadecimal code to buffer
  * @ascii_code: ASSCI CODE.
  *
- * Return: Always 3
+ * Return: Always 1
  */
 int append_hexa_code(char ascii_code)
 {
@@ -40,5 +40,5 @@ int append_hexa_code(char ascii_code)
 		_putchar(hex[i]);
 		i++;
 	}
-	return (3);
+	return (1);
 }
