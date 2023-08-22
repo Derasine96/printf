@@ -33,3 +33,30 @@ int pointer(va_list args)
 	}
 	return (count);
 }
+/**
+ * print_string_reversed - prints strings reverse
+ * @args: variable arguments
+ * Return: integer
+ */
+int print_string_reversed(va_list args)
+{
+	char *s = va_arg(args, char *);
+
+	int i = 0, count = 0;
+
+	if (s == NULL)
+	{
+		s = ")null(";
+	}
+
+	while (s[i])
+	{
+		i++;
+	}
+	while (i > 0)
+	{
+		count += _putchar(s[i - 1]);
+		i--;
+	}
+	return (count);
+}

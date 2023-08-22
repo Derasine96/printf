@@ -22,6 +22,7 @@ int print_hex(va_list args);
 int cap_hex(va_list args);
 int pointer(va_list args);
 int append_hexa_code(char);
+int print_string_reversed(va_list args);
 /**
  * struct printf_flag - A struct op.
  * @c: The specifier.

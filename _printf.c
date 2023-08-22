@@ -22,6 +22,7 @@ int (*get_op(const char *c))(va_list)
 		{"x", print_hex},
 		{"X", cap_hex},
 		{"p", pointer},
+		{"r", print_string_reversed},
 		{NULL, NULL}};
 
 	while (fg[i].c != NULL)
