@@ -17,7 +17,7 @@ int pointer(va_list args)
 	num_addr = (unsigned long) addr;
 	_putchar('0');
 	_putchar('x');
-	count += 2;
+	count++;
 
 	while (num_addr > 0)
 	{
