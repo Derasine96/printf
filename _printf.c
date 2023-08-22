@@ -12,7 +12,7 @@ int (*get_op(const char *c))(va_list)
 	flags fg[] = {
 		{"c", print_char},
 		{"s", print_string},
-		{"S", print_cap_string},
+		{"S", print_string},
 		{"%", print_percent},
 		{"d", print_integer},
 		{"i", print_integer},
