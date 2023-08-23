@@ -19,7 +19,7 @@ https://www.cypress.com/file/54761/download
 
 ------------
 
-#### Authorized functions and macros
+#### Authorized Functions and Macros
 
 ------------
 
@@ -33,7 +33,7 @@ va_arg (man 3 va_arg)
 
 ------------
 
-#### Compilation:alembic:
+#### Compilation
 
 
 The code must be compiled this way:
