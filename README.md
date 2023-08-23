@@ -1,6 +1,6 @@
 # PRINTF FUNCTION
 
-## Description:page_facing_up:
+## Description
 
 ------------
 
@@ -12,25 +12,16 @@ _printf() function format string is a character string, beginning and ending in 
 These arguments are placed using the percentage '%' operator
 
 ------------
-
-
 ### Resources
-
-------------
-
-
 
 Secrets of printfby Don colton
 https://www.cypress.com/file/54761/download
 
 ------------
 
-
-
 #### Authorized functions and macros
 
 ------------
-
 
 write (man 2 write)
 malloc (man 3 malloc)
