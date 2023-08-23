@@ -3,9 +3,14 @@
 /**
  * print_char - prints char
  * @args: variable arguments
+ * @c: current char
+ * @next: next char
+ * @__attribute__((unused)): unused var
  * Return: Integer
  */
-int print_char(va_list args)
+int print_char(va_list args,
+		char c __attribute__((unused)),
+		__attribute__((unused)) char next)
 {
 	char ch = va_arg(args, int);
 
@@ -16,9 +21,14 @@ int print_char(va_list args)
 /**
  * print_string - prints strings
  * @args: variable arguments
- * Return: integer
+ * @c: current char
+ * @next: next char
+ * @__attribute__((unused)): unused var
+ * Return: Integer
  */
-int print_string(va_list args)
+int print_string(va_list args,
+		char c __attribute__((unused)),
+		__attribute__((unused)) char next)
 {
 	char *s = va_arg(args, char *);
 
@@ -26,6 +36,8 @@ int print_string(va_list args)
 
 	if (s != NULL)
 	{
+
+		i += handle_custom_flags(c, next);
 		while (*s != '\0')
 		{
 			if ((*s > 0 && *s < 32) || *s >= 127)
@@ -51,10 +63,14 @@ int print_string(va_list args)
 /**
  * print_percent - prints %
  * @args: variable arg
- * @_attribute_((unused): unused variables
- * Return: integer
+ * @c: current char
+ * @next: next char
+ * @__attribute__((unused)): unused var
+ * Return: Integer
  */
-int print_percent(va_list args __attribute__((unused)))
+int print_percent(va_list args __attribute__((unused)),
+		char c __attribute__((unused)),
+		__attribute__((unused)) char next)
 {
 	_putchar('%');
 	return (1);
@@ -97,14 +113,24 @@ int check_integer(int res)
 
 /**
  * print_integer - prints whole number
- * @args: variable arg
+ * @args: variable arguments
+ * @c: current char
+ * @next: next char
+ * @__attribute__((unused)): unused var
  * Return: Integer
  */
-int print_integer(va_list args)
+int print_integer(va_list args,
+		char c __attribute__((unused)),
+		__attribute__((unused)) char next)
 {
-	int res, val;
+	int res = 0, val;
 
 	val = va_arg(args, int);
-	res = check_integer(val);
+
+	if (val > 0)
+	{
+		res += handle_custom_flags(c, next);
+	}
+	res += check_integer(val);
 	return (res);
 }

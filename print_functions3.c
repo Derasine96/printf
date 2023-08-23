@@ -2,9 +2,14 @@
 /**
  * pointer - prints the hexadecimal value
  * @args: variable argument
- * Return: (0);
+ * @c: current char
+ * @next: next char
+ * @__attribute__((unused)): unused var
+ * Return: Integer
  */
-int pointer(va_list args)
+int pointer(va_list args,
+		char c __attribute__((unused)),
+		__attribute__((unused)) char next)
 {
 	void *addr = va_arg(args, void *);
 	unsigned long num_addr;
@@ -12,9 +17,15 @@ int pointer(va_list args)
 	int i = 0, count = 0, values[BUFF_SIZE];
 
 	if (addr == NULL)
+	{
 		return (write(1, "(nil)", 5));
+	}
+	else
+	{
+		count += handle_custom_flags(c, next);
+	}
 
-	num_addr = (unsigned long) addr;
+	num_addr = (unsigned long)addr;
 	_putchar('0');
 	_putchar('x');
 	count += 2;
@@ -36,9 +47,14 @@ int pointer(va_list args)
 /**
  * print_string_reversed - prints strings reverse
  * @args: variable arguments
- * Return: integer
+ * @c: current char
+ * @next: next char
+ * @__attribute__((unused)): unused var
+ * Return: Integer
  */
-int print_string_reversed(va_list args)
+int print_string_reversed(va_list args,
+		char c __attribute__((unused)),
+		__attribute__((unused)) char next)
 {
 	char *s = va_arg(args, char *);
 
@@ -63,9 +79,14 @@ int print_string_reversed(va_list args)
 /**
  * print_rot13 - print 13th char from a chae.
  * @args: variable arguments
- * Return: integer
+ * @c: current char
+ * @next: next char
+ * @__attribute__((unused)): unused var
+ * Return: Integer
  */
-int print_rot13(va_list args)
+int print_rot13(va_list args,
+		char c __attribute__((unused)),
+		__attribute__((unused)) char next)
 {
 	char *y = va_arg(args, char *);
 

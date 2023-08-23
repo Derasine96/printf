@@ -5,7 +5,7 @@
  * @c: char to check
  * Return: pointer to a function
  */
-int (*get_op(const char *c))(va_list)
+int (*get_op(const char *c))(va_list, char, char)
 {
 	int i = 0;
 
@@ -24,9 +24,6 @@ int (*get_op(const char *c))(va_list)
 		{"p", pointer},
 		{"r", print_string_reversed},
 		{"R", print_rot13},
-		{"+", print_plus_flag},
-		{" ", print_space_flag},
-		{"#", print_hash_flag_hex},
 		{NULL, NULL}};
 
 	while (fg[i].c != NULL)
@@ -41,6 +38,83 @@ int (*get_op(const char *c))(va_list)
 }
 
 /**
+ * handle_custom_flags - handle flag char
+ * @c: char to check
+ * @next: next char after c
+ * Return: integer
+ */
+int handle_custom_flags(char c, char next)
+{
+	int i = 0, res = 0;
+
+	char flag[] = {'+', ' ', '-', '#', '0', '\0'};
+
+	while (flag[i] != '\0')
+	{
+		if (c == flag[i])
+		{
+			if (c == '+' && (next == 'd' || next == 'i' || next == 'p'))
+			{
+				_putchar('+');
+				res++;
+				break;
+			}
+			else if (c == '#')
+			{
+				if (next == 'x')
+				{
+					_putchar('0');
+					_putchar('x');
+
+					res += 2;
+				}
+				else if (next == 'X')
+				{
+					_putchar('0');
+					_putchar('X');
+					res += 2;
+				}
+				else if (next == 'o')
+				{
+					_putchar('0');
+					res++;
+				}
+				break;
+			}
+			else if (c == ' ')
+			{
+				break;
+			}
+		}
+		i++;
+	}
+
+	return (res);
+}
+
+/**
+ * check_custom_flags - handle flag char
+ * @c: char to check
+ * Return: int
+ */
+int check_custom_flags(const char c)
+{
+	int i = 0;
+
+	char flag[] = {'+', ' ', '-', '#', '0', '\0'};
+
+	while (flag[i] != '\0')
+	{
+		if (c == flag[i])
+		{
+			return (1);
+		}
+		i++;
+	}
+	return (0);
+}
+
+/**
  * _printf - a function that produces output according to a format
  * @format: character string
  * @...: Ellipsis
@@ -48,8 +122,10 @@ int (*get_op(const char *c))(va_list)
  */
 int _printf(const char *format, ...)
 {
-	int (*func)(va_list);
+	int (*func)(va_list, char, char);
 	int i = 0;
+	char c, next;
+	int check_res;
 	va_list args;
 
 	if (!format || (format[0] == '%' && format[1] == '\0'))
@@ -62,9 +138,17 @@ int _printf(const char *format, ...)
 		if (*format == '%')
 		{
 			format++;
-
 			if (*format != '\0')
 			{
+				c = *format;
+				check_res = check_custom_flags(c);
+
+				if (check_res == 1)
+				{
+					format++;
+				}
+				next = *format;
+
 				func = get_op(format);
 				if (func == NULL)
 				{
@@ -74,7 +158,7 @@ int _printf(const char *format, ...)
 				}
 				else
 				{
-					i += func(args);
+					i += func(args, c, next);
 				}
 			}
 			else
