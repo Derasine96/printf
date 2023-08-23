@@ -1,4 +1,4 @@
-# printf:tada:
+# printf function
 
 ## Description:page_facing_up:
 
