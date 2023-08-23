@@ -35,9 +35,6 @@ va_arg (man 3 va_arg)
 
 #### Compilation:alembic:
 
-------------
-
-
 
 The code must be compiled this way:
 
@@ -69,7 +66,6 @@ Many other specifiers and flags were added and by combinig those the _printf() f
 ------------
 
 #### Use & Examples
-
 
 ------------
 
@@ -125,7 +121,6 @@ Specifier                |Output                        |Examples |
 
 #### Files contained in this repository
 
-
 ------------
 
 |Name                |Information                        |Relevant Files                         |
@@ -154,7 +149,6 @@ Specifier                |Output                        |Examples |
 ------------
 
 ## Tasks required for this project
-
 
 ------------
 
