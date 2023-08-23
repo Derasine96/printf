@@ -146,7 +146,6 @@ Returns a string in reverse.
 Returns a string in Rot13.` |
 Auxiliar functions such as strlen and strcpy.
 |`_putchar.c` | Custom putchar function. | `None` |
-|`printfunction3.c`|. Contains:
 
 
 ------------
