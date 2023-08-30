@@ -25,6 +25,7 @@ int append_hexa_code(char);
 int print_string_reversed(va_list args, char c, char next);
 int print_rot13(va_list args, char c, char next);
 int handle_custom_flags(char c, char next);
+int check_custom_flags(const char c);
 /**
  * struct printf_flag - A struct op.
  * @c: The specifier.

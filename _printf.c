@@ -128,6 +128,7 @@ int _printf(const char *format, ...)
 	int i = 0;
 	char c, next;
 	int check_res;
+	int res_next;
 	va_list args;
 
 	if (!format || (format[0] == '%' && format[1] == '\0'))
@@ -146,9 +147,11 @@ int _printf(const char *format, ...)
 				check_res = check_custom_flags(c);
 
 				if (check_res == 1)
-				{
 					format++;
-				}
+				res_next = check_custom_flags(*format);
+
+				if (res_next == 1)
+					format++;
 				next = *format;
 
 				func = get_op(format);
