@@ -120,13 +120,13 @@ int print_hex(va_list args,
 
 	char hex_digits[] = "0123456789abcdef";
 
-	count += handle_custom_flags(c, next);
-
 	if (value == 0)
 	{
 		_putchar('0');
 		return (1);
 	}
+	count += handle_custom_flags(c, next);
+
 	while (value > 0)
 	{
 		hexa[index++] = hex_digits[value % 16];
@@ -156,13 +156,13 @@ int cap_hex(va_list args,
 
 	char hex_digits[] = "0123456789ABCDEF";
 
-	count += handle_custom_flags(c, next);
-
 	if (value == 0)
 	{
 		_putchar('0');
 		return (1);
 	}
+	count += handle_custom_flags(c, next);
+
 	while (value > 0)
 	{
 		hexa[index++] = hex_digits[value % 16];
