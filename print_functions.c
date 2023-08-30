@@ -40,7 +40,13 @@ int print_string(va_list args,
 		i += handle_custom_flags(c, next);
 		while (*s != '\0')
 		{
-			if ((*s > 0 && *s < 32) || *s >= 127)
+			if (*s == '\n')
+			{
+				_putchar('\n');
+				s++;
+				i++;
+			}
+			else if ((*s > 0 && *s < 32) || *s >= 127)
 			{
 				i += append_hexa_code(*s);
 				s++;
