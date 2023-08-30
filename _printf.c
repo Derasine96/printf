@@ -83,6 +83,7 @@ int handle_custom_flags(char c, char next)
 			}
 			else if (c == ' ')
 			{
+				res++;
 				break;
 			}
 		}
