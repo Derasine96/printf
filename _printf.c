@@ -103,7 +103,7 @@ int check_custom_flags(const char c)
 {
 	int i = 0;
 
-	char flag[] = {'+', ' ', '-', '#', '0', '\0'};
+	char flag[] = {'+', ' ', '-', '#', '0', 'l', '\0'};
 
 	while (flag[i] != '\0')
 	{
