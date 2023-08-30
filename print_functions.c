@@ -133,7 +133,7 @@ int print_integer(va_list args,
 
 	val = va_arg(args, int);
 
-	if (val > 0)
+	if (val >= 0)
 	{
 		res += handle_custom_flags(c, next);
 	}
